@@ -43,7 +43,8 @@ const style = {
         borderRadius: '0',
         maxHeight: '100%',
         maxWidth: '100%',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        color:"red"
 
     }
 }
