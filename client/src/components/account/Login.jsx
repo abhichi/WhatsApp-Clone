@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { Dialog, withStyles, Box, Typography, makeStyles, List, ListItem } from '@material-ui/core';
 import { GoogleLogin } from 'react-google-login';
 import { AccountContext } from '../../context/AccountProvider';
-
+import { clientId } from '../../constants/data';
 
 const useStyles = makeStyles({
     component: {
@@ -44,14 +44,14 @@ const style = {
         maxHeight: '100%',
         maxWidth: '100%',
         overflow: 'hidden',
-        color:"red"
+        
 
     }
 }
 const Login = ({ classes }) => {
     const classname = useStyles();
     const qrurl = 'https://www.ginifab.com/feeds/qr_code/img/qrcode.jpg';
-    const clientId = '1082490062088-ev3f07qjhhh4rl6kpptd21bdcoe29lf0.apps.googleusercontent.com';
+    //const clientId = '1082490062088-ev3f07qjhhh4rl6kpptd21bdcoe29lf0.apps.googleusercontent.com';
 
     const { account, setAccount } = useContext(AccountContext);
 
