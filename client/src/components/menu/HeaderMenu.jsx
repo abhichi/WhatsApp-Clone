@@ -5,7 +5,7 @@ import { clientId } from '../../constants/data';
 import { GoogleLogout } from 'react-google-login';
 
 import { AccountContext } from '../../context/AccountProvider';
-
+import Drawer from '../drawer/InfoDrawer'
 const useStyles = makeStyles({
     menuItem: {
         fontSize: 14,
@@ -23,6 +23,7 @@ const useStyles = makeStyles({
 
 const HeaderMenu = () => {
     const [open, setOpen] = useState(false)
+    const [openDrawer, setOpenDrawer] = useState(false);
     const { setAccount } = useContext(AccountContext);
     const classes = useStyles();
 
@@ -39,6 +40,11 @@ const HeaderMenu = () => {
         console.clear();
         setAccount('');
     }
+
+    const toggleDrawer = () => {
+        setOpenDrawer(true);
+    }
+
     return (
         <>
             <MoreVert onClick={handleClick}/>
@@ -60,7 +66,7 @@ const HeaderMenu = () => {
                     'aria-labelledby': 'basic-button',
                 }}
             >
-                <MenuItem className={classes.menuItem} onClick={handleClose}>Profile</MenuItem>
+                <MenuItem className={classes.menuItem} onClick={() => {handleClose(); toggleDrawer()}}>Profile</MenuItem>
                 <MenuItem className={classes.menuItem} onClick={handleClose}>
                     <GoogleLogout
                         clientId={clientId}
@@ -73,6 +79,7 @@ const HeaderMenu = () => {
                 </MenuItem>
                 
             </Menu>
+            <Drawer open={openDrawer} setOpen={setOpenDrawer} />
         </>
     )
 }
