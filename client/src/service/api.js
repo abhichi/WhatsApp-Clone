@@ -19,3 +19,37 @@ export const getUsers = async () => {
         console.log(`Error while calling getUsers api`, error);
     }
 }
+
+export const setConversation = async (data) => {
+    try {
+        await axios.post(`${URL}/conversation/add`, data);
+    } catch(error){
+        console.log('Error while calling setConversation API', error);
+    }
+}
+
+export const getConversation = async (data) => {
+    try{
+        let response = await axios.post(`${URL}/conversation/get`, data);
+        //console.log(response);
+        return response.data;
+    } catch(error){
+        console.log('Error while calling getConversation api', error);
+    }
+}
+
+export const newMessage = async (data) => {
+    try {
+        await axios.post(`${URL}/message/add`, data);
+    } catch(error) {
+        console.log('Error while calling newMessage api', error);
+    }
+}
+
+export const getMessages = async (id) => {
+    try {
+        return await axios.get(`${URL}/message/get/${id}`);
+    } catch(error) {
+        console.log('Error while calling getMessage api', error);
+    }
+}

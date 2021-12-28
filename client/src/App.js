@@ -2,13 +2,16 @@
 //components
 import Messenger from "./components/Messenger";
 import AccountProvider from './context/AccountProvider';
+import UserProvider from "./context/UserProvider";
 import TemplateProvider from "./theme/TemplateProvider";
 function App() {
   return (
     <TemplateProvider>
-      <AccountProvider>
-        <Messenger />
-      </AccountProvider>
+      <UserProvider>
+        <AccountProvider>
+          <Messenger />
+        </AccountProvider>
+      </UserProvider>
     </TemplateProvider>
 
   );
